@@ -12,7 +12,7 @@
 <div style="width: 100%; margin:auto;height: 100vh; padding-top:300px; text-align: center">
 <h1>' . config('larakit.lk-auth-ulogin.title') . '</h1>
 <div id="uLogin"
-data-ulogin="display=' . config('larakit.lk-auth-ulogin.display') . ';theme=classic;fields=' . implode(',', config('larakit.lk-auth-ulogin.fields')) . ';providers=' . implode(',', config('larakit.lk-auth-ulogin.providers')) . ';hidden=' . config('larakit.lk-auth-ulogin.hidden') . ';redirect_uri=' . urlencode(route('login')) . ';mobilebuttons=0;"></div>                        
+data-ulogin="display=' . config('larakit.lk-auth-ulogin.display') . ';theme=classic;fields=' . implode(',', config('larakit.lk-auth-ulogin.fields')) . ';providers=' . implode(',', config('larakit.lk-auth-ulogin.providers')) . ';hidden=' . config('larakit.lk-auth-ulogin.hidden') . ';redirect_uri=' . urlencode(route('login').'?_token='.csrf_token()) . ';mobilebuttons=0;"></div>                        
                         </div>';
         
     })
@@ -47,7 +47,6 @@ data-ulogin="display=' . config('larakit.lk-auth-ulogin.display') . ';theme=clas
                 //регистрируем пользователя
                 $model                  = \App\User::firstOrCreate([
                     'name'     => $username,
-                    'is_admin' => false,
                     'password' => Hash::make(md5(microtime(true))),
                     'email'    => (string)$email,
                 ]);
