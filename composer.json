@@ -1,0 +1,28 @@
+{
+    "name": "larakit/lk-auth-ulogin",
+    "description": "Ulogin - авторизация",
+  	"version": "2.0.2",
+    "keywords": [
+        "laravel",
+        "larakit"
+    ],
+    "require": {
+        "larakit/lk-route": "*"
+    },
+    "authors": [
+        {
+            "name": "Alexey Berdnikov",
+            "email": "aberdnikov@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Larakit\\Auth\\": "src/"
+        },
+        "files": [
+            "src/init.php"
+        ]
+    },
+    "minimum-stability": "dev"
+}
