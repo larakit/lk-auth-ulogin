@@ -21,7 +21,7 @@
             "Larakit\\Auth\\": "src/"
         },
         "files": [
-            "src/init.php"
+            "init.php"
         ]
     },
     "minimum-stability": "dev"
