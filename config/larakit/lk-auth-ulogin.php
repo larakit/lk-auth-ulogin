@@ -39,5 +39,4 @@ return [
         'instagram',
     ],
     'hidden'       => 'other',
-    'redirect_uri' => URL::to($url)
 ];
