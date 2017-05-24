@@ -6,9 +6,6 @@
         "laravel",
         "larakit"
     ],
-    "require": {
-        "larakit/lk-route": "*"
-    },
     "authors": [
         {
             "name": "Alexey Berdnikov",
