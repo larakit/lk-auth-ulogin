@@ -1,8 +1,17 @@
 <?php
 Route::get('/logout', function () {
+    return [
+        'result'  => 'error',
+        'message' => 'Запрещен метод выхода',
+    ];
+})->name('logout')->middleware('web');
+Route::post('/logout', function () {
     Auth::logout();
     
-    return redirect('/?exit');
+    return [
+        'result'  => 'success',
+        'message' => 'Вы вышли с проекта',
+    ];
 })->name('logout')->middleware('web');
 
 Route::get('/login', function () {
@@ -14,7 +23,6 @@ Route::get('/login', function () {
 data-ulogin="display=' . config('larakit.lk-auth-ulogin.display') . ';theme=classic;fields=' . implode(',', config('larakit.lk-auth-ulogin.fields')) . ';providers=' . implode(',', config('larakit.lk-auth-ulogin.providers')) . ';hidden=' . config('larakit.lk-auth-ulogin.hidden') . ';redirect_uri=' . urlencode(route('login') . '?_token=' . csrf_token()) . ';mobilebuttons=0;"></div>                        
                         </div>';
 })->name('login')->middleware('web')->middleware('guest');
-
 
 Route::post('/login', function () {
     $token = Request::input('token');
@@ -39,7 +47,7 @@ Route::post('/login', function () {
         if($user) {
             throw new \Exception('На сайте уже есть пользователь с таким E-mail');
         } else {
-            $username       = \Illuminate\Support\Arr::get($data, 'last_name') . ' ' . \Illuminate\Support\Arr::get($data, 'first_name');
+            $username = \Illuminate\Support\Arr::get($data, 'last_name') . ' ' . \Illuminate\Support\Arr::get($data, 'first_name');
             //регистрируем пользователя
             $model                  = \App\User::firstOrCreate([
                 'name'     => $username,
