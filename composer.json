@@ -6,6 +6,9 @@
         "laravel",
         "larakit"
     ],
+    "require": {
+        "larakit/lk-boot": "*"
+    },
     "authors": [
         {
             "name": "Alexey Berdnikov",
