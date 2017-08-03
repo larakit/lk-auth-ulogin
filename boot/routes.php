@@ -52,7 +52,7 @@ Route::post('/login', function () {
             $model                  = \App\User::firstOrCreate([
                 'name'     => $username,
                 'password' => Hash::make(md5(microtime(true))),
-                'email'    => (string) $email,
+                'email'    => (string) ($email ? $email : microtime(true)),
             ]);
             $model->ulogin_identity = $ulogin_identity;
             $model->ulogin_network  = $ulogin_network;
