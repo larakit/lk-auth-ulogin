@@ -62,4 +62,4 @@ Route::post('/login', function () {
             return \Redirect::intended();
         }
     }
-})->name('logout')->middleware('web')->middleware('guest');
+})->name('login')->middleware('web')->middleware('guest');
