@@ -7,7 +7,7 @@
         "larakit"
     ],
     "require": {
-        "larakit/lk-boot": "*"
+        "larakit/lk-auth": "*"
     },
     "authors": [
         {
